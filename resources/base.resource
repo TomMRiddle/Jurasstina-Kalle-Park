@@ -1,6 +1,5 @@
 *** Settings ***
 Library          SeleniumLibrary
-Library          String
 Variables        resources/variables_base.py
 
 *** Keywords ***
