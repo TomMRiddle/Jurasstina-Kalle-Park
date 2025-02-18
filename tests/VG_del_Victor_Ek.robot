@@ -45,6 +45,8 @@ There are ticket types for Adult, Child and Senior
     Then I should see ticket type options for    Adult    Child    Senior
 
 VIP category tickets have double the price of a regular category ticket
+    [Documentation]    Verifies that VIP tickets have double the price of regular tickets
+    [Tags]    Victor
     Given I am logged in as a user
     And I am on the tickets page
     And I add every ticket type there is for Regular and VIP category tickets to my cart
