@@ -37,6 +37,16 @@ Having a ${ticket} ticket and booking a ${safari} safari on a ${date} will give 
     ...          VIP        ${safari_vip_option1}        workday date
     ...          VIP        ${safari_regular_option1}    weekend date
 
-#There are ticket types for Adult, Child and Senior
+There are ticket types for Adult, Child and Senior
+    [Documentation]    Verifies that the tree ticket types exist when a logged in user want to buy tickets
+    [Tags]    Victor
+    Given I am logged in as a user
+    When I am on the tickets page
+    Then I should see ticket type options for    Adult    Child    Senior
 
-#VIP category tickets should have double the price of a regular category ticket of the same ticket type
+VIP category tickets have double the price of a regular category ticket
+    Given I am logged in as a user
+    And I am on the tickets page
+    And I add every ticket type there is for Regular and VIP category tickets to my cart
+    When I navigate to the cart page
+    Then the VIP category tickets price should be double the price of a Regular category ticket of the same type
