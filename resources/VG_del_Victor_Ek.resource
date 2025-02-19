@@ -1,6 +1,8 @@
 *** Settings ***
 Library      SeleniumLibrary
+Library      BuiltIn
 Library      Collections
+Library      String
 Variables    variables_VG_del_Victor_Ek.py
 Variables    variables_base.py
 Resource     resources/base.resource
@@ -28,7 +30,7 @@ I should see ticket type options for
 I add every ticket type there is for Regular and VIP category tickets to my cart
     @{ticket_types}    Get List Items    ${tickets_type_select}
     VAR    @{ticket_types}    @{ticket_types}    scope=TEST
-    VAR    @{ticket_categories}    Regular    VIP
+    VAR    @{ticket_categories}    Regular    VIP    scope=TEST
     FOR    ${ticket_type}    IN    @{ticket_types}
         FOR    ${ticket_category}    IN    @{ticket_categories}
             I add a ${ticket_category} ${ticket_type} ticket to my cart
@@ -36,10 +38,14 @@ I add every ticket type there is for Regular and VIP category tickets to my cart
     END
 
 the VIP category tickets price should be double the price of a Regular category ticket of the same type
-    @{cart_web_items}    Get WebElements    ${cart_items} ul li
     FOR    ${ticket_type}    IN    @{ticket_types}
-        FOR    ${cart_web_item}    IN    @{cart_web_items}
-            ${item_text}    Evaluate    $cart_web_item.text
-            Log    t:${ticket_type} c:${item_text}    INFO
-        END
+        ${regular_ticket}    Get Text             xpath://*[@id="cart-details"]//*[contains(text(),"Regular ${ticket_type}")]
+        ${vip_ticket}        Get Text             xpath://*[@id="cart-details"]//*[contains(text(),"VIP ${ticket_type}")]
+        ${regular_ticket}    Remove String        ${regular_ticket}        \nRemove
+        ${vip_ticket}        Remove String        ${vip_ticket}            \nRemove
+        ${regular_ticket}    Fetch From Right     ${regular_ticket}        $
+        ${vip_ticket}        Fetch From Right     ${vip_ticket}            $
+        ${regular_ticket}    Convert To Number    ${regular_ticket}
+        ${vip_ticket}        Convert To Number    ${vip_ticket}
+        Should Be Equal      ${vip_ticket}        ${{${regular_ticket}*2}}
     END
