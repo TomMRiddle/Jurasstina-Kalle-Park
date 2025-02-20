@@ -1,0 +1,3079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-02-20T19:09:28.846410" rpa="false" schemaversion="5">
+<suite id="s1" name="Jurasstina-Kalle-Park-Victor" source="C:\Users\PC\PycharmProjects\Jurasstina-Kalle-Park-Victor">
+<suite id="s1-s1" name="Tests" source="C:\Users\PC\PycharmProjects\Jurasstina-Kalle-Park-Victor\tests">
+<suite id="s1-s1-s1" name="VG del Victor Ek" source="C:\Users\PC\PycharmProjects\Jurasstina-Kalle-Park-Victor\tests\VG_del_Victor_Ek.robot">
+<test id="s1-s1-s1-t1" name="There are ticket types for Adult, Child and Senior" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:09:29.381260" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:09:29.380960" elapsed="5.783170"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:09:35.168773" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.166763" elapsed="0.002125"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:35.170651" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.169153" elapsed="0.305663"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.475031" elapsed="0.015304"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.166318" elapsed="0.324210"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:35.491367" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.491127" elapsed="0.038913"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:35.490805" elapsed="0.039411"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:35.530981" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:09:35.540929" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.530739" elapsed="0.017849"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:35.530447" elapsed="0.018260"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:35.549417" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.549193" elapsed="0.015678"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:35.548924" elapsed="0.016073"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:35.565533" elapsed="2.085909"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:09:37.651911" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:09:37.651661" elapsed="0.000303"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:09:35.565237" elapsed="2.086817"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:35.165765" elapsed="2.486368"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:37.652854" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:37.652590" elapsed="0.018003"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:37.652314" elapsed="0.018408"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:37.671467" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:09:37.680323" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:37.671229" elapsed="0.016745"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:37.670948" elapsed="0.017151"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:37.688798" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:37.688570" elapsed="0.005909"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:37.688304" elapsed="0.006277"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:37.695079" elapsed="2.078308"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:37.694763" elapsed="2.078852"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:35.165150" elapsed="4.608577"/>
+</kw>
+<kw name="When I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:09:39.775786" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:09:39.775535" elapsed="0.000343"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:39.776785" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:39.776388" elapsed="0.214197"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:39.990792" elapsed="0.006820"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:09:39.775015" elapsed="0.222699"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:39.774430" elapsed="0.223364"/>
+</kw>
+<kw name="Then I should see ticket type options for" owner="VG_del_Victor_Ek">
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:40.020401" level="INFO">@{list_on_page_items} = [ Adult | Child | Senior ]</msg>
+<var>@{list_on_page_items}</var>
+<arg>${tickets_type_select}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:39.998495" elapsed="0.021976"/>
+</kw>
+<kw name="List Should Contain Sub List" owner="Collections">
+<arg>${list_on_page_items}</arg>
+<arg>${list_items}</arg>
+<doc>Fails if not all elements in ``list2`` are found in ``list1``.</doc>
+<status status="PASS" start="2025-02-20T19:09:40.020663" elapsed="0.000219"/>
+</kw>
+<arg>Adult</arg>
+<arg>Child</arg>
+<arg>Senior</arg>
+<status status="PASS" start="2025-02-20T19:09:39.998185" elapsed="0.022781"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:09:40.021397" elapsed="2.809168"/>
+</kw>
+<doc>Test for feature number 5, Verifies that the three ticket types exist</doc>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:29.379729" elapsed="13.451155"/>
+</test>
+<test id="s1-s1-s1-t2" name="VIP category tickets have double the price of a regular category ticket" line="17">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:09:42.832278" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:09:42.832044" elapsed="5.893528"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:09:48.729675" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:09:48.727731" elapsed="0.002042"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:48.730318" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:48.729997" elapsed="0.267742"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:48.997946" elapsed="0.011013"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:09:48.727325" elapsed="0.281755"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:49.009906" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:49.009654" elapsed="0.037929"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:49.009312" elapsed="0.038397"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:49.048425" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:09:49.059007" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:49.048192" elapsed="0.018539"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:49.047920" elapsed="0.018931"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:49.067538" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:49.067326" elapsed="0.015884"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:49.067061" elapsed="0.016272"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:49.083866" elapsed="2.115978"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:09:51.200286" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:09:51.200061" elapsed="0.000275"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:09:49.083574" elapsed="2.116840"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:48.726828" elapsed="2.473655"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:51.201165" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:51.200937" elapsed="0.017742"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:51.200661" elapsed="0.018145"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:51.219538" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:09:51.228592" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:51.219303" elapsed="0.016339"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:51.219023" elapsed="0.016735"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:51.236431" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:51.236219" elapsed="0.006548"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:51.235957" elapsed="0.006925"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:51.243369" elapsed="2.076656"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:51.243084" elapsed="2.077164"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:48.726294" elapsed="4.594105"/>
+</kw>
+<kw name="And I have every ticket type there is for Regular and VIP category tickets in my cart" owner="VG_del_Victor_Ek">
+<kw name="I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:09:53.322798" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.322450" elapsed="0.000449"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.323404" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.323054" elapsed="0.221857"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.545120" elapsed="0.006985"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.322047" elapsed="0.230170"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:53.321645" elapsed="0.230647"/>
+</kw>
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.575534" level="INFO">@{ticket_types} = [ Adult | Child | Senior ]</msg>
+<var>@{ticket_types}</var>
+<arg>${tickets_type_select}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.552447" elapsed="0.023137"/>
+</kw>
+<variable name="@{ticket_types}" scope="TEST">
+<msg time="2025-02-20T19:09:53.575866" level="INFO">@{ticket_types} = [ Adult | Child | Senior ]</msg>
+<var>@{ticket_types}</var>
+<status status="PASS" start="2025-02-20T19:09:53.575685" elapsed="0.000216"/>
+</variable>
+<variable name="@{ticket_categories}" scope="TEST">
+<msg time="2025-02-20T19:09:53.576087" level="INFO">@{ticket_categories} = [ Regular | VIP ]</msg>
+<var>Regular</var>
+<var>VIP</var>
+<status status="PASS" start="2025-02-20T19:09:53.575977" elapsed="0.000141"/>
+</variable>
+<for flavor="IN">
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:09:53.577334" elapsed="0.000032"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:09:53.577138" elapsed="0.000275"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:09:53.577109" elapsed="0.000345"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.577790" level="INFO">Selecting options from selection list 'id:ticket-category' by value Regular.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.577569" elapsed="0.008456"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.586353" level="INFO">Selecting options from selection list 'id:ticket-type' by value Adult.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.586163" elapsed="0.008773"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.595338" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.595128" elapsed="0.064686"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.660216" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.660029" elapsed="0.010951"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:09:53.576820" elapsed="0.094273"/>
+</kw>
+<var name="${ticket_category}">Regular</var>
+<status status="PASS" start="2025-02-20T19:09:53.576576" elapsed="0.094576"/>
+</iter>
+<iter>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:09:53.672051" elapsed="0.000031"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:09:53.671870" elapsed="0.000258"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:09:53.671843" elapsed="0.000327"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.672547" level="INFO">Selecting options from selection list 'id:ticket-category' by value VIP.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.672284" elapsed="0.224523"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.897314" level="INFO">Selecting options from selection list 'id:ticket-type' by value Adult.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.897044" elapsed="0.010128"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.907606" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.907381" elapsed="0.044416"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.952150" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.952012" elapsed="0.019376"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:09:53.671562" elapsed="0.299965"/>
+</kw>
+<var name="${ticket_category}">VIP</var>
+<status status="PASS" start="2025-02-20T19:09:53.671300" elapsed="0.300286"/>
+</iter>
+<var>${ticket_category}</var>
+<value>@{ticket_categories}</value>
+<status status="PASS" start="2025-02-20T19:09:53.576451" elapsed="0.395204"/>
+</for>
+<var name="${ticket_type}">Adult</var>
+<status status="PASS" start="2025-02-20T19:09:53.576391" elapsed="0.395331"/>
+</iter>
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:09:53.972868" elapsed="0.000030"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:09:53.972686" elapsed="0.000256"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:09:53.972662" elapsed="0.000326"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.973323" level="INFO">Selecting options from selection list 'id:ticket-category' by value Regular.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.973102" elapsed="0.008992"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:53.982496" level="INFO">Selecting options from selection list 'id:ticket-type' by value Child.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:53.982269" elapsed="0.221951"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.204666" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.204433" elapsed="0.036023"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.240801" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.240665" elapsed="0.013522"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:09:53.972386" elapsed="0.281952"/>
+</kw>
+<var name="${ticket_category}">Regular</var>
+<status status="PASS" start="2025-02-20T19:09:53.972142" elapsed="0.282260"/>
+</iter>
+<iter>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:09:54.255241" elapsed="0.000029"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:09:54.255083" elapsed="0.000230"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:09:54.255060" elapsed="0.000290"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.255681" level="INFO">Selecting options from selection list 'id:ticket-category' by value VIP.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.255459" elapsed="0.225246"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.481178" level="INFO">Selecting options from selection list 'id:ticket-type' by value Child.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.480919" elapsed="0.214514"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.695878" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.695644" elapsed="0.035876"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.731867" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.731734" elapsed="0.022655"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:09:54.254792" elapsed="0.499722"/>
+</kw>
+<var name="${ticket_category}">VIP</var>
+<status status="PASS" start="2025-02-20T19:09:54.254544" elapsed="0.500055"/>
+</iter>
+<var>${ticket_category}</var>
+<value>@{ticket_categories}</value>
+<status status="PASS" start="2025-02-20T19:09:53.971953" elapsed="0.782709"/>
+</for>
+<var name="${ticket_type}">Child</var>
+<status status="PASS" start="2025-02-20T19:09:53.971891" elapsed="0.782840"/>
+</iter>
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:09:54.755761" elapsed="0.000028"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:09:54.755600" elapsed="0.000232"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:09:54.755571" elapsed="0.000300"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.756201" level="INFO">Selecting options from selection list 'id:ticket-category' by value Regular.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.755982" elapsed="0.008794"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.765149" level="INFO">Selecting options from selection list 'id:ticket-type' by value Senior.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.764937" elapsed="0.223177"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:54.988554" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:54.988321" elapsed="0.035831"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.024492" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.024359" elapsed="0.013436"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:09:54.755295" elapsed="0.282628"/>
+</kw>
+<var name="${ticket_category}">Regular</var>
+<status status="PASS" start="2025-02-20T19:09:54.755065" elapsed="0.282913"/>
+</iter>
+<iter>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:09:55.038958" elapsed="0.000029"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:09:55.038795" elapsed="0.000235"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:09:55.038766" elapsed="0.000302"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.039399" level="INFO">Selecting options from selection list 'id:ticket-category' by value VIP.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.039177" elapsed="0.227772"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.267416" level="INFO">Selecting options from selection list 'id:ticket-type' by value Senior.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.267157" elapsed="0.214804"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.482402" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.482172" elapsed="0.035250"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.517767" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.517632" elapsed="0.020013"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:09:55.038490" elapsed="0.499279"/>
+</kw>
+<var name="${ticket_category}">VIP</var>
+<status status="PASS" start="2025-02-20T19:09:55.038238" elapsed="0.499621"/>
+</iter>
+<var>${ticket_category}</var>
+<value>@{ticket_categories}</value>
+<status status="PASS" start="2025-02-20T19:09:54.754933" elapsed="0.783009"/>
+</for>
+<var name="${ticket_type}">Senior</var>
+<status status="PASS" start="2025-02-20T19:09:54.754881" elapsed="0.783131"/>
+</iter>
+<var>${ticket_type}</var>
+<value>@{ticket_types}</value>
+<status status="PASS" start="2025-02-20T19:09:53.576205" elapsed="1.961862"/>
+</for>
+<status status="PASS" start="2025-02-20T19:09:53.321133" elapsed="2.217020"/>
+</kw>
+<kw name="When I navigate to the cart page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:09:55.539424" level="INFO">${page} = cart</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.539244" elapsed="0.000233"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.539803" level="INFO">Clicking link 'data:section:cart-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.539599" elapsed="0.222835"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.762641" elapsed="0.006876"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.538965" elapsed="0.230655"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:09:55.538605" elapsed="0.231090"/>
+</kw>
+<kw name="Then the VIP category tickets price should be double the price of a Regular category ticket of the same type" owner="VG_del_Victor_Ek">
+<for flavor="IN">
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.778761" level="INFO">${${ticket_category}_ticket} = 1 Regular Adult Ticket(s) - $50
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>xpath://*[@id="cart-details"]//*[contains(text(),"${ticket_category} ${ticket_type}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.770837" elapsed="0.007971"/>
+</kw>
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-02-20T19:09:55.779212" level="INFO">${${ticket_category}_ticket} = 50
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.778982" elapsed="0.000262"/>
+</kw>
+<kw name="Fetch From Left" owner="String">
+<msg time="2025-02-20T19:09:55.779577" level="INFO">${${ticket_category}_ticket} = 50</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>\n</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.779369" elapsed="0.000239"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-02-20T19:09:55.779965" level="INFO">${${ticket_category}_ticket} = 50.0</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.779728" elapsed="0.000269"/>
+</kw>
+<var name="${ticket_category}">Regular</var>
+<status status="PASS" start="2025-02-20T19:09:55.770719" elapsed="0.009332"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.786998" level="INFO">${${ticket_category}_ticket} = 1 VIP Adult Ticket(s) - $100
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>xpath://*[@id="cart-details"]//*[contains(text(),"${ticket_category} ${ticket_type}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.780278" elapsed="0.006760"/>
+</kw>
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-02-20T19:09:55.787399" level="INFO">${${ticket_category}_ticket} = 100
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.787180" elapsed="0.000255"/>
+</kw>
+<kw name="Fetch From Left" owner="String">
+<msg time="2025-02-20T19:09:55.787775" level="INFO">${${ticket_category}_ticket} = 100</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>\n</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.787568" elapsed="0.000238"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-02-20T19:09:55.788156" level="INFO">${${ticket_category}_ticket} = 100.0</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.787928" elapsed="0.000258"/>
+</kw>
+<var name="${ticket_category}">VIP</var>
+<status status="PASS" start="2025-02-20T19:09:55.780176" elapsed="0.008130"/>
+</iter>
+<var>${ticket_category}</var>
+<value>@{ticket_categories}</value>
+<status status="PASS" start="2025-02-20T19:09:55.770589" elapsed="0.017778"/>
+</for>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${vip_ticket}</arg>
+<arg>${{${regular_ticket}*2}}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.788500" elapsed="0.000761"/>
+</kw>
+<var name="${ticket_type}">Adult</var>
+<status status="PASS" start="2025-02-20T19:09:55.770541" elapsed="0.018779"/>
+</iter>
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.796722" level="INFO">${${ticket_category}_ticket} = 1 Regular Child Ticket(s) - $30
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>xpath://*[@id="cart-details"]//*[contains(text(),"${ticket_category} ${ticket_type}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.789747" elapsed="0.007015"/>
+</kw>
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-02-20T19:09:55.797116" level="INFO">${${ticket_category}_ticket} = 30
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.796904" elapsed="0.000244"/>
+</kw>
+<kw name="Fetch From Left" owner="String">
+<msg time="2025-02-20T19:09:55.797466" level="INFO">${${ticket_category}_ticket} = 30</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>\n</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.797267" elapsed="0.000231"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-02-20T19:09:55.797839" level="INFO">${${ticket_category}_ticket} = 30.0</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.797620" elapsed="0.000251"/>
+</kw>
+<var name="${ticket_category}">Regular</var>
+<status status="PASS" start="2025-02-20T19:09:55.789651" elapsed="0.008281"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.804794" level="INFO">${${ticket_category}_ticket} = 1 VIP Child Ticket(s) - $60
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>xpath://*[@id="cart-details"]//*[contains(text(),"${ticket_category} ${ticket_type}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.798149" elapsed="0.006692"/>
+</kw>
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-02-20T19:09:55.805238" level="INFO">${${ticket_category}_ticket} = 60
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.805011" elapsed="0.000260"/>
+</kw>
+<kw name="Fetch From Left" owner="String">
+<msg time="2025-02-20T19:09:55.805597" level="INFO">${${ticket_category}_ticket} = 60</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>\n</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.805392" elapsed="0.000237"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-02-20T19:09:55.805974" level="INFO">${${ticket_category}_ticket} = 60.0</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.805753" elapsed="0.000253"/>
+</kw>
+<var name="${ticket_category}">VIP</var>
+<status status="PASS" start="2025-02-20T19:09:55.798050" elapsed="0.008008"/>
+</iter>
+<var>${ticket_category}</var>
+<value>@{ticket_categories}</value>
+<status status="PASS" start="2025-02-20T19:09:55.789518" elapsed="0.016592"/>
+</for>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${vip_ticket}</arg>
+<arg>${{${regular_ticket}*2}}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.806245" elapsed="0.000753"/>
+</kw>
+<var name="${ticket_type}">Child</var>
+<status status="PASS" start="2025-02-20T19:09:55.789469" elapsed="0.017588"/>
+</iter>
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.814611" level="INFO">${${ticket_category}_ticket} = 1 Regular Senior Ticket(s) - $40
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>xpath://*[@id="cart-details"]//*[contains(text(),"${ticket_category} ${ticket_type}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.807480" elapsed="0.007177"/>
+</kw>
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-02-20T19:09:55.815043" level="INFO">${${ticket_category}_ticket} = 40
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.814822" elapsed="0.000253"/>
+</kw>
+<kw name="Fetch From Left" owner="String">
+<msg time="2025-02-20T19:09:55.815396" level="INFO">${${ticket_category}_ticket} = 40</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>\n</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.815196" elapsed="0.000231"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-02-20T19:09:55.815773" level="INFO">${${ticket_category}_ticket} = 40.0</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.815547" elapsed="0.000258"/>
+</kw>
+<var name="${ticket_category}">Regular</var>
+<status status="PASS" start="2025-02-20T19:09:55.807378" elapsed="0.008480"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:09:55.823175" level="INFO">${${ticket_category}_ticket} = 1 VIP Senior Ticket(s) - $80
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>xpath://*[@id="cart-details"]//*[contains(text(),"${ticket_category} ${ticket_type}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.816079" elapsed="0.007183"/>
+</kw>
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-02-20T19:09:55.823749" level="INFO">${${ticket_category}_ticket} = 80
+Remove</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.823471" elapsed="0.000314"/>
+</kw>
+<kw name="Fetch From Left" owner="String">
+<msg time="2025-02-20T19:09:55.824138" level="INFO">${${ticket_category}_ticket} = 80</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<arg>\n</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.823931" elapsed="0.000238"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-02-20T19:09:55.824527" level="INFO">${${ticket_category}_ticket} = 80.0</msg>
+<var>${${ticket_category}_ticket}</var>
+<arg>${${ticket_category}_ticket}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.824296" elapsed="0.000262"/>
+</kw>
+<var name="${ticket_category}">VIP</var>
+<status status="PASS" start="2025-02-20T19:09:55.815979" elapsed="0.008759"/>
+</iter>
+<var>${ticket_category}</var>
+<value>@{ticket_categories}</value>
+<status status="PASS" start="2025-02-20T19:09:55.807247" elapsed="0.017550"/>
+</for>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${vip_ticket}</arg>
+<arg>${{${regular_ticket}*2}}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.824929" elapsed="0.000755"/>
+</kw>
+<var name="${ticket_type}">Senior</var>
+<status status="PASS" start="2025-02-20T19:09:55.807199" elapsed="0.018542"/>
+</iter>
+<var>${ticket_type}</var>
+<value>@{ticket_types}</value>
+<status status="PASS" start="2025-02-20T19:09:55.770367" elapsed="0.055424"/>
+</for>
+<status status="PASS" start="2025-02-20T19:09:55.770138" elapsed="0.055733"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:09:55.826278" elapsed="2.699850"/>
+</kw>
+<doc>Test for feature number 5, Verifies that VIP tickets have double the price of regular tickets</doc>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:42.831559" elapsed="15.694861"/>
+</test>
+<test id="s1-s1-s1-t3" name="Having a NONE ticket when booking a Herbivore Tour safari on a workday date will give an error message">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:09:58.527785" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:09:58.527563" elapsed="5.981043"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:04.512031" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.510293" elapsed="0.001811"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:04.512537" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.512274" elapsed="0.263781"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.776266" elapsed="0.010042"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.510020" elapsed="0.276407"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:04.787261" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.786971" elapsed="0.039712"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:04.786650" elapsed="0.040158"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:04.827513" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:10:04.837206" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.827283" elapsed="0.018746"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:04.827015" elapsed="0.019138"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:04.846861" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.846642" elapsed="0.017037"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:04.846364" elapsed="0.017436"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:04.864345" elapsed="2.081872"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:06.946663" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:06.946434" elapsed="0.000280"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:10:04.864047" elapsed="2.082746"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:04.509678" elapsed="2.437184"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:06.947561" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:06.947339" elapsed="0.016892"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:06.947042" elapsed="0.017313"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:06.965073" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:10:06.974556" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:06.964843" elapsed="0.018579"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:06.964568" elapsed="0.018976"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:06.984223" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:06.984016" elapsed="0.005953"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:06.983749" elapsed="0.006337"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:06.990636" elapsed="2.078557"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:06.990356" elapsed="2.078965"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:04.509257" elapsed="4.560131"/>
+</kw>
+<kw name="And I have a NONE category ticket in my cart" owner="VG_del_Victor_Ek" source_name="I have a ${ticket} category ticket in my cart">
+<kw name="I have a ${ticket} Adult ticket in my cart" owner="base" source_name="I have a ${ticket_category} ${ticket_type} ticket in my cart">
+<kw name="I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:09.071156" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.070957" elapsed="0.000280"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.071708" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.071458" elapsed="0.230331"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.302001" elapsed="0.007322"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.070682" elapsed="0.238765"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:09.070422" elapsed="0.239103"/>
+</kw>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="PASS" start="2025-02-20T19:10:09.310283" elapsed="0.000057"/>
+</return>
+<status status="PASS" start="2025-02-20T19:10:09.310112" elapsed="0.000283"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:09.310086" elapsed="0.000354"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:09.310563" elapsed="0.000033"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:09.310703" elapsed="0.000029"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:09.310835" elapsed="0.000028"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:09.310963" elapsed="0.000032"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:10:09.309798" elapsed="0.001262"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:09.070143" elapsed="0.240982"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:09.069818" elapsed="0.241367"/>
+</kw>
+<kw name="And I am on the safari page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:09.311984" level="INFO">${page} = safari</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.311812" elapsed="0.000221"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.312343" level="INFO">Clicking link 'data:section:safari-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.312147" elapsed="0.221025"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.533380" elapsed="0.008204"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.311565" elapsed="0.230137"/>
+</kw>
+<kw name="When I add the Herbivore Tour safari on a workday date to my cart" owner="base" source_name="I add the ${safari_type} safari on a ${date_var_name} to my cart">
+<kw name="I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart" owner="base" source_name="I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.543166" level="INFO">Typing text '2100-01-01' into text field 'id:safari-date'.</msg>
+<arg>${safari_date_input}</arg>
+<arg>${yyyy-mm-dd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.542964" elapsed="0.009669"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.553058" level="INFO">Selecting options from selection list 'id:safari-type' by value Herbivore Tour.</msg>
+<arg>${safari_type_select}</arg>
+<arg>${safari_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.552819" elapsed="0.011411"/>
+</kw>
+<kw name="submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.564955" level="INFO">Submitting form 'id:safari-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.564744" elapsed="0.005292"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:09.564464" elapsed="0.005658"/>
+</kw>
+<if>
+<branch type="IF" condition="$handle_alert==True">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:09.570439" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2025-02-20T19:10:09.570214" elapsed="0.000299"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:09.570189" elapsed="0.000368"/>
+</if>
+<arg>handle_alert=${handle_alert}</arg>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:09.542598" elapsed="0.028012"/>
+</kw>
+<arg>handle_alert=No</arg>
+<tag>Victor</tag>
+<doc>Allows a name of a variable to be specified instead of hardcoding a date into the test case</doc>
+<status status="PASS" start="2025-02-20T19:10:09.542154" elapsed="0.028521"/>
+</kw>
+<kw name="Then I should see an error message with the text You must purchase a general admission ticket before booking a safari." owner="VG_del_Victor_Ek" source_name="I should see an error message with the text ${text}">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.571630" level="INFO">Verifying element 'id:safari-message' contains exact text 'You must purchase a general admission ticket before booking a safari.'.</msg>
+<arg>${${page}_message}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.571402" elapsed="0.007839"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:09.571072" elapsed="0.008295"/>
+</kw>
+<kw name="And the Herbivore Tour should not be listed on the cart page" owner="VG_del_Victor_Ek" source_name="the ${item_name} should not be listed on the cart page">
+<kw name="I navigate to the cart page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:09.580883" level="INFO">${page} = cart</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.580662" elapsed="0.000280"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.581267" level="INFO">Clicking link 'data:section:cart-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.581065" elapsed="0.212634"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.793916" elapsed="0.007322"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.580395" elapsed="0.220958"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:09.580117" elapsed="0.221310"/>
+</kw>
+<kw name="Element Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:09.808391" level="INFO">Element 'css:#cart-details' does not contain text 'Herbivore Tour'.</msg>
+<arg>${cart_items}</arg>
+<arg>${item_name}</arg>
+<doc>Verifies that element ``locator`` does not contain text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.801576" elapsed="0.006915"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:09.579796" elapsed="0.228798"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:10:09.809031" elapsed="2.775770"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:09:58.527061" elapsed="14.058041"/>
+</test>
+<test id="s1-s1-s1-t4" name="Having a Regular ticket when booking a Herbivore Tour with Feeding safari on a workday date will give an error message">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:10:12.586470" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:10:12.586251" elapsed="5.763469"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:18.354420" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.351767" elapsed="0.002795"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:18.356158" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.354986" elapsed="0.309900"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.665100" elapsed="0.015216"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.351385" elapsed="0.329058"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:18.681317" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.681088" elapsed="0.038177"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:18.680743" elapsed="0.038651"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:18.720121" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:10:18.730144" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.719881" elapsed="0.016970"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:18.719608" elapsed="0.017364"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:18.737683" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.737450" elapsed="0.016811"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:18.737170" elapsed="0.017216"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:18.754977" elapsed="2.083508"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:20.838942" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:20.838705" elapsed="0.000289"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:10:18.754633" elapsed="2.084445"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:18.350852" elapsed="2.488297"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:20.839899" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:20.839608" elapsed="0.017143"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:20.839336" elapsed="0.017543"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:20.857597" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:10:20.866903" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:20.857364" elapsed="0.017435"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:20.857091" elapsed="0.017830"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:20.875589" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:20.875385" elapsed="0.005656"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:20.875123" elapsed="0.006011"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:20.881548" elapsed="2.073035"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:20.881304" elapsed="2.073406"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:18.350350" elapsed="4.604431"/>
+</kw>
+<kw name="And I have a Regular category ticket in my cart" owner="VG_del_Victor_Ek" source_name="I have a ${ticket} category ticket in my cart">
+<kw name="I have a ${ticket} Adult ticket in my cart" owner="base" source_name="I have a ${ticket_category} ${ticket_type} ticket in my cart">
+<kw name="I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:22.956616" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:22.956419" elapsed="0.000250"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:22.956994" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:22.956792" elapsed="0.216433"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.173432" elapsed="0.006822"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:22.956160" elapsed="0.224198"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:22.955881" elapsed="0.224551"/>
+</kw>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:10:23.181141" elapsed="0.000028"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:10:23.180979" elapsed="0.000236"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:23.180954" elapsed="0.000304"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.181577" level="INFO">Selecting options from selection list 'id:ticket-category' by value Regular.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.181365" elapsed="0.009316"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.191138" level="INFO">Selecting options from selection list 'id:ticket-type' by value Adult.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.190885" elapsed="0.008928"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.200200" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.199990" elapsed="0.066462"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.266789" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.266658" elapsed="0.022387"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:10:23.180691" elapsed="0.108479"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:22.955585" elapsed="0.333667"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:22.955248" elapsed="0.334072"/>
+</kw>
+<kw name="And I am on the safari page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:23.290281" level="INFO">${page} = safari</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.290104" elapsed="0.000230"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.290654" level="INFO">Clicking link 'data:section:safari-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.290456" elapsed="0.220754"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.511419" elapsed="0.007258"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.289794" elapsed="0.229010"/>
+</kw>
+<kw name="When I add the Herbivore Tour with Feeding safari on a workday date to my cart" owner="base" source_name="I add the ${safari_type} safari on a ${date_var_name} to my cart">
+<kw name="I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart" owner="base" source_name="I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.520243" level="INFO">Typing text '2100-01-01' into text field 'id:safari-date'.</msg>
+<arg>${safari_date_input}</arg>
+<arg>${yyyy-mm-dd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.520034" elapsed="0.009692"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.530203" level="INFO">Selecting options from selection list 'id:safari-type' by value Herbivore Tour with Feeding.</msg>
+<arg>${safari_type_select}</arg>
+<arg>${safari_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.529937" elapsed="0.247293"/>
+</kw>
+<kw name="submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.777967" level="INFO">Submitting form 'id:safari-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.777752" elapsed="0.006440"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:23.777471" elapsed="0.006841"/>
+</kw>
+<if>
+<branch type="IF" condition="$handle_alert==True">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:23.784686" elapsed="0.000036"/>
+</kw>
+<status status="NOT RUN" start="2025-02-20T19:10:23.784418" elapsed="0.000349"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:23.784387" elapsed="0.000425"/>
+</if>
+<arg>handle_alert=${handle_alert}</arg>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:23.519666" elapsed="0.265201"/>
+</kw>
+<arg>handle_alert=No</arg>
+<tag>Victor</tag>
+<doc>Allows a name of a variable to be specified instead of hardcoding a date into the test case</doc>
+<status status="PASS" start="2025-02-20T19:10:23.519252" elapsed="0.265684"/>
+</kw>
+<kw name="Then I should see an error message with the text Only VIP users can book the selected safari option." owner="VG_del_Victor_Ek" source_name="I should see an error message with the text ${text}">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.785911" level="INFO">Verifying element 'id:safari-message' contains exact text 'Only VIP users can book the selected safari option.'.</msg>
+<arg>${${page}_message}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.785672" elapsed="0.008802"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:23.785377" elapsed="0.009225"/>
+</kw>
+<kw name="And the Herbivore Tour with Feeding should not be listed on the cart page" owner="VG_del_Victor_Ek" source_name="the ${item_name} should not be listed on the cart page">
+<kw name="I navigate to the cart page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:23.796056" level="INFO">${page} = cart</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.795873" elapsed="0.000233"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:23.796421" level="INFO">Clicking link 'data:section:cart-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.796225" elapsed="0.210255"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:24.006685" elapsed="0.006848"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:23.795609" elapsed="0.218032"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:23.795337" elapsed="0.218377"/>
+</kw>
+<kw name="Element Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:24.022748" level="INFO">Element 'css:#cart-details' does not contain text 'Herbivore Tour with Feeding'.</msg>
+<arg>${cart_items}</arg>
+<arg>${item_name}</arg>
+<doc>Verifies that element ``locator`` does not contain text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:10:24.013858" elapsed="0.008989"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:23.795019" elapsed="0.227930"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:10:24.023457" elapsed="2.682180"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:12.585715" elapsed="14.120219"/>
+</test>
+<test id="s1-s1-s1-t5" name="Having a Regular ticket when booking a Herbivore Tour safari on a weekend date will give an error message">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:10:26.707327" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:10:26.707100" elapsed="5.998204"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:32.707736" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:32.706687" elapsed="0.001107"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:32.708141" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:32.707920" elapsed="0.254965"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:32.963095" elapsed="0.013986"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:32.706459" elapsed="0.270751"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:32.977993" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:32.977753" elapsed="0.038166"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:32.977440" elapsed="0.038618"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:33.016781" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:10:33.027740" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:33.016549" elapsed="0.019454"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:33.016271" elapsed="0.019856"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:33.036805" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:33.036592" elapsed="0.016249"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:33.036329" elapsed="0.016636"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:33.053626" elapsed="2.091568"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:35.145638" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:35.145407" elapsed="0.000281"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:10:33.053328" elapsed="2.092440"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:32.706186" elapsed="2.439652"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:35.146505" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:35.146286" elapsed="0.017124"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:35.146013" elapsed="0.017525"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:35.164255" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:10:35.173041" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:35.164021" elapsed="0.015970"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:35.163749" elapsed="0.016360"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:35.180883" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:35.180653" elapsed="0.005435"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:35.180309" elapsed="0.005870"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:35.186589" elapsed="2.073724"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:35.186346" elapsed="2.074091"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:32.705859" elapsed="4.554646"/>
+</kw>
+<kw name="And I have a Regular category ticket in my cart" owner="VG_del_Victor_Ek" source_name="I have a ${ticket} category ticket in my cart">
+<kw name="I have a ${ticket} Adult ticket in my cart" owner="base" source_name="I have a ${ticket_category} ${ticket_type} ticket in my cart">
+<kw name="I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:37.262279" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.262079" elapsed="0.000267"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.262662" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.262465" elapsed="0.216229"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.478901" elapsed="0.006865"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.261811" elapsed="0.224058"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:37.261540" elapsed="0.224401"/>
+</kw>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:10:37.486655" elapsed="0.000029"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:10:37.486489" elapsed="0.000239"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:37.486464" elapsed="0.000303"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.487083" level="INFO">Selecting options from selection list 'id:ticket-category' by value Regular.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.486873" elapsed="0.009388"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.496693" level="INFO">Selecting options from selection list 'id:ticket-type' by value Adult.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.496450" elapsed="0.008315"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.505129" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.504934" elapsed="0.065660"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.570939" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.570807" elapsed="0.018960"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:10:37.486195" elapsed="0.103824"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:37.261256" elapsed="0.328846"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:37.260930" elapsed="0.329235"/>
+</kw>
+<kw name="And I am on the safari page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:37.591071" level="INFO">${page} = safari</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.590899" elapsed="0.000222"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.591433" level="INFO">Clicking link 'data:section:safari-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.591238" elapsed="0.223672"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.815189" elapsed="0.013525"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.590593" elapsed="0.238249"/>
+</kw>
+<kw name="When I add the Herbivore Tour safari on a weekend date to my cart" owner="base" source_name="I add the ${safari_type} safari on a ${date_var_name} to my cart">
+<kw name="I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart" owner="base" source_name="I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.830293" level="INFO">Typing text '2100-01-02' into text field 'id:safari-date'.</msg>
+<arg>${safari_date_input}</arg>
+<arg>${yyyy-mm-dd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.830085" elapsed="0.007684"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.838154" level="INFO">Selecting options from selection list 'id:safari-type' by value Herbivore Tour.</msg>
+<arg>${safari_type_select}</arg>
+<arg>${safari_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.837933" elapsed="0.009570"/>
+</kw>
+<kw name="submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.848251" level="INFO">Submitting form 'id:safari-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.848043" elapsed="0.005061"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:37.847734" elapsed="0.005455"/>
+</kw>
+<if>
+<branch type="IF" condition="$handle_alert==True">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:37.853510" elapsed="0.000032"/>
+</kw>
+<status status="NOT RUN" start="2025-02-20T19:10:37.853284" elapsed="0.000303"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:37.853258" elapsed="0.000372"/>
+</if>
+<arg>handle_alert=${handle_alert}</arg>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:37.829725" elapsed="0.023959"/>
+</kw>
+<arg>handle_alert=No</arg>
+<tag>Victor</tag>
+<doc>Allows a name of a variable to be specified instead of hardcoding a date into the test case</doc>
+<status status="PASS" start="2025-02-20T19:10:37.829307" elapsed="0.024442"/>
+</kw>
+<kw name="Then I should see an error message with the text VIP tickets required to book safaris on weekends." owner="VG_del_Victor_Ek" source_name="I should see an error message with the text ${text}">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.854577" level="INFO">Verifying element 'id:safari-message' contains exact text 'VIP tickets required to book safaris on weekends.'.</msg>
+<arg>${${page}_message}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.854377" elapsed="0.008647"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:37.854134" elapsed="0.009030"/>
+</kw>
+<kw name="And the Herbivore Tour should not be listed on the cart page" owner="VG_del_Victor_Ek" source_name="the ${item_name} should not be listed on the cart page">
+<kw name="I navigate to the cart page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:37.864621" level="INFO">${page} = cart</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.864436" elapsed="0.000237"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:37.864986" level="INFO">Clicking link 'data:section:cart-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.864792" elapsed="0.225982"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:38.091149" elapsed="0.012383"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:37.864173" elapsed="0.239553"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:37.863896" elapsed="0.239955"/>
+</kw>
+<kw name="Element Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:38.120052" level="INFO">Element 'css:#cart-details' does not contain text 'Herbivore Tour'.</msg>
+<arg>${cart_items}</arg>
+<arg>${item_name}</arg>
+<doc>Verifies that element ``locator`` does not contain text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:10:38.104100" elapsed="0.016060"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:37.863580" elapsed="0.256688"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:10:38.120750" elapsed="2.712032"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:26.706594" elapsed="14.126474"/>
+</test>
+<test id="s1-s1-s1-t6" name="Having a Regular ticket and booking a Herbivore Tour safari on a workday date will give a success alert">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:10:40.834502" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:10:40.834278" elapsed="5.738730"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:46.580132" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.576534" elapsed="0.003720"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:46.580945" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.580543" elapsed="0.266362"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.847124" elapsed="0.010814"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.575776" elapsed="0.282284"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:46.858820" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.858589" elapsed="0.039567"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:46.858285" elapsed="0.040001"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:46.899010" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:10:46.908869" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.898777" elapsed="0.018088"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:46.898499" elapsed="0.018503"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:46.917677" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.917469" elapsed="0.016214"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:46.917203" elapsed="0.016607"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:46.934346" elapsed="2.079419"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:49.014208" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:49.013975" elapsed="0.000283"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:10:46.934050" elapsed="2.080290"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:46.574756" elapsed="2.439666"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:49.015094" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:49.014873" elapsed="0.016181"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:49.014601" elapsed="0.016580"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:49.031899" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:10:49.041183" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:49.031668" elapsed="0.016974"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:49.031390" elapsed="0.017372"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:49.049439" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:49.049235" elapsed="0.005435"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:49.048964" elapsed="0.005801"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:49.055179" elapsed="2.073886"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:49.054933" elapsed="2.074256"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:46.574197" elapsed="4.555065"/>
+</kw>
+<kw name="And I have a Regular category ticket in my cart" owner="VG_del_Victor_Ek" source_name="I have a ${ticket} category ticket in my cart">
+<kw name="I have a ${ticket} Adult ticket in my cart" owner="base" source_name="I have a ${ticket_category} ${ticket_type} ticket in my cart">
+<kw name="I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:51.131014" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.130825" elapsed="0.000239"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.131384" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.131184" elapsed="0.226745"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.358143" elapsed="0.006820"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.130562" elapsed="0.234498"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:51.130292" elapsed="0.234915"/>
+</kw>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:10:51.365904" elapsed="0.000028"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:10:51.365744" elapsed="0.000232"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:51.365719" elapsed="0.000295"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.366332" level="INFO">Selecting options from selection list 'id:ticket-category' by value Regular.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.366128" elapsed="0.009300"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.375844" level="INFO">Selecting options from selection list 'id:ticket-type' by value Adult.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.375607" elapsed="0.008429"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.384398" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.384203" elapsed="0.065416"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.449952" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.449824" elapsed="0.008072"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:10:51.365459" elapsed="0.092551"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:51.129998" elapsed="0.328089"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:51.129676" elapsed="0.328475"/>
+</kw>
+<kw name="And I am on the safari page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:51.459062" level="INFO">${page} = safari</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.458888" elapsed="0.000223"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.459437" level="INFO">Clicking link 'data:section:safari-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.459240" elapsed="0.220164"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.679619" elapsed="0.006771"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.458593" elapsed="0.227896"/>
+</kw>
+<kw name="When I add the Herbivore Tour safari on a workday date to my cart" owner="base" source_name="I add the ${safari_type} safari on a ${date_var_name} to my cart">
+<kw name="I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart" owner="base" source_name="I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.687858" level="INFO">Typing text '2100-01-01' into text field 'id:safari-date'.</msg>
+<arg>${safari_date_input}</arg>
+<arg>${yyyy-mm-dd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.687667" elapsed="0.007841"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.695972" level="INFO">Selecting options from selection list 'id:safari-type' by value Herbivore Tour.</msg>
+<arg>${safari_type_select}</arg>
+<arg>${safari_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.695715" elapsed="0.008478"/>
+</kw>
+<kw name="submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.704869" level="INFO">Submitting form 'id:safari-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.704666" elapsed="0.033081"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:51.704400" elapsed="0.033470"/>
+</kw>
+<if>
+<branch type="IF" condition="$handle_alert==True">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-02-20T19:10:51.738278" elapsed="0.000035"/>
+</kw>
+<status status="NOT RUN" start="2025-02-20T19:10:51.738004" elapsed="0.000352"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:10:51.737972" elapsed="0.000426"/>
+</if>
+<arg>handle_alert=${handle_alert}</arg>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:51.687311" elapsed="0.051142"/>
+</kw>
+<arg>handle_alert=No</arg>
+<tag>Victor</tag>
+<doc>Allows a name of a variable to be specified instead of hardcoding a date into the test case</doc>
+<status status="PASS" start="2025-02-20T19:10:51.686917" elapsed="0.051612"/>
+</kw>
+<kw name="Then I should see a success alert" owner="VG_del_Victor_Ek">
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.739433" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>${${page}_success_alert}</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.739249" elapsed="0.017875"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:10:51.738940" elapsed="0.018312"/>
+</kw>
+<kw name="And the Herbivore Tour should be listed on the cart page" owner="base" source_name="the ${item_name} should be listed on the cart page">
+<kw name="I navigate to the cart page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:10:51.758839" level="INFO">${page} = cart</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.758656" elapsed="0.000233"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.759208" level="INFO">Clicking link 'data:section:cart-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.759008" elapsed="0.213004"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.972222" elapsed="0.007501"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.758384" elapsed="0.221458"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:10:51.758107" elapsed="0.221870"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:10:51.990047" level="INFO">Element 'css:#cart-details' contains text 'Herbivore Tour'.</msg>
+<arg>${cart_items}</arg>
+<arg>${item name}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.980135" elapsed="0.010032"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:51.757786" elapsed="0.232492"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:10:51.990723" elapsed="2.789453"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:40.833778" elapsed="13.946703"/>
+</test>
+<test id="s1-s1-s1-t7" name="Having a VIP ticket and booking a Herbivore Tour with Feeding safari on a workday date will give a success alert">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:10:54.781909" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:10:54.781687" elapsed="5.847428"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:00.633544" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:00.631515" elapsed="0.002134"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:00.634230" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:00.633882" elapsed="0.355224"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:00.989313" elapsed="0.011089"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:00.631169" elapsed="0.369353"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:01.001329" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:01.001101" elapsed="0.037513"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:01.000785" elapsed="0.037965"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:01.039543" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:11:01.050390" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:01.039261" elapsed="0.019607"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:01.038979" elapsed="0.020011"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:01.059759" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:01.059525" elapsed="0.017518"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:01.059213" elapsed="0.017950"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:01.077714" elapsed="2.082490"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:03.160642" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:03.160412" elapsed="0.000282"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:11:01.077400" elapsed="2.083370"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:00.630086" elapsed="2.530756"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:03.161508" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:03.161294" elapsed="0.016515"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:03.161031" elapsed="0.016903"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:03.178662" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:11:03.187403" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:03.178429" elapsed="0.016497"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:03.178151" elapsed="0.016893"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:03.195726" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:03.195520" elapsed="0.005543"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:03.195252" elapsed="0.005897"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:03.201553" elapsed="2.073044"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:03.201313" elapsed="2.073412"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:00.629747" elapsed="4.645047"/>
+</kw>
+<kw name="And I have a VIP category ticket in my cart" owner="VG_del_Victor_Ek" source_name="I have a ${ticket} category ticket in my cart">
+<kw name="I have a ${ticket} Adult ticket in my cart" owner="base" source_name="I have a ${ticket_category} ${ticket_type} ticket in my cart">
+<kw name="I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:05.276641" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.276440" elapsed="0.000256"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:05.277016" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.276816" elapsed="0.235079"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.512101" elapsed="0.006956"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.276183" elapsed="0.242983"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:05.275917" elapsed="0.243322"/>
+</kw>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:11:05.519950" elapsed="0.000028"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:11:05.519789" elapsed="0.000238"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:11:05.519764" elapsed="0.000304"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:05.520416" level="INFO">Selecting options from selection list 'id:ticket-category' by value VIP.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.520175" elapsed="0.222445"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:05.743083" level="INFO">Selecting options from selection list 'id:ticket-type' by value Adult.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.742829" elapsed="0.011243"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:05.754420" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.754235" elapsed="0.075525"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:05.830097" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.829966" elapsed="0.011050"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:11:05.519499" elapsed="0.321636"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:05.275630" elapsed="0.565584"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:11:05.275304" elapsed="0.565974"/>
+</kw>
+<kw name="And I am on the safari page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:05.842222" level="INFO">${page} = safari</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.842043" elapsed="0.000230"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:05.842596" level="INFO">Clicking link 'data:section:safari-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.842395" elapsed="0.223635"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.066236" elapsed="0.006972"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:05.841736" elapsed="0.231579"/>
+</kw>
+<kw name="When I add the Herbivore Tour with Feeding safari on a workday date to my cart" owner="base" source_name="I add the ${safari_type} safari on a ${date_var_name} to my cart">
+<kw name="I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart" owner="base" source_name="I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:06.074754" level="INFO">Typing text '2100-01-01' into text field 'id:safari-date'.</msg>
+<arg>${safari_date_input}</arg>
+<arg>${yyyy-mm-dd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.074547" elapsed="0.008272"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:06.083236" level="INFO">Selecting options from selection list 'id:safari-type' by value Herbivore Tour with Feeding.</msg>
+<arg>${safari_type_select}</arg>
+<arg>${safari_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.083004" elapsed="0.228086"/>
+</kw>
+<kw name="submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:06.311825" level="INFO">Submitting form 'id:safari-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.311615" elapsed="0.033974"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:06.311335" elapsed="0.034380"/>
+</kw>
+<if>
+<branch type="IF" condition="$handle_alert==True">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-02-20T19:11:06.346088" elapsed="0.000035"/>
+</kw>
+<status status="NOT RUN" start="2025-02-20T19:11:06.345821" elapsed="0.000345"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:11:06.345791" elapsed="0.000417"/>
+</if>
+<arg>handle_alert=${handle_alert}</arg>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:06.074173" elapsed="0.272088"/>
+</kw>
+<arg>handle_alert=No</arg>
+<tag>Victor</tag>
+<doc>Allows a name of a variable to be specified instead of hardcoding a date into the test case</doc>
+<status status="PASS" start="2025-02-20T19:11:06.073754" elapsed="0.272579"/>
+</kw>
+<kw name="Then I should see a success alert" owner="VG_del_Victor_Ek">
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:06.347208" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>${${page}_success_alert}</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.347031" elapsed="0.011093"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:11:06.346707" elapsed="0.011542"/>
+</kw>
+<kw name="And the Herbivore Tour with Feeding should be listed on the cart page" owner="base" source_name="the ${item_name} should be listed on the cart page">
+<kw name="I navigate to the cart page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:06.359813" level="INFO">${page} = cart</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.359618" elapsed="0.000247"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:06.360183" level="INFO">Clicking link 'data:section:cart-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.359985" elapsed="0.213610"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.573812" elapsed="0.006901"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.359349" elapsed="0.221474"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:06.359075" elapsed="0.221821"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:06.590039" level="INFO">Element 'css:#cart-details' contains text 'Herbivore Tour with Feeding'.</msg>
+<arg>${cart_items}</arg>
+<arg>${item name}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.581044" elapsed="0.009071"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:06.358753" elapsed="0.231451"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:11:06.590662" elapsed="2.800757"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:10:54.781163" elapsed="14.610543"/>
+</test>
+<test id="s1-s1-s1-t8" name="Having a VIP ticket and booking a Herbivore Tour safari on a weekend date will give a success alert">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-20T19:11:09.393071" level="INFO">Opening browser 'firefox' to base url 'file:///C:/Users/PC/PycharmProjects/Jurasstina-Kalle-Park-Victor/jurap.html'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-20T19:11:09.392851" elapsed="5.921756"/>
+</kw>
+<kw name="Given I am logged in as a user" owner="base" source_name="I am logged in as ${username}">
+<kw name="I am registered as ${username}" owner="base" source_name="I am registered as ${username}">
+<kw name="I am on the register page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:15.319291" level="INFO">${page} = register</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.317143" elapsed="0.002260"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:15.319995" level="INFO">Clicking link 'data:section:register-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.319589" elapsed="0.335816"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.655610" elapsed="0.011277"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.316713" elapsed="0.350301"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:15.667795" level="INFO">Typing text 'a user' into text field 'id:reg-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.667558" elapsed="0.049392"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:15.667242" elapsed="0.049862"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:15.717918" level="INFO">Typing password into text field 'id:reg-password'.</msg>
+<msg time="2025-02-20T19:11:15.729146" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.717679" elapsed="0.018617"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:15.717349" elapsed="0.019075"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:15.737097" level="INFO">Submitting form 'id:register-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.736891" elapsed="0.015441"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:15.736626" elapsed="0.015830"/>
+</kw>
+<kw name="And I should be redirected to the login page" owner="base" source_name="I should be redirected to the ${page_name} page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page_name}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:15.752992" elapsed="2.090476"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:17.843909" level="INFO">${page} = login</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:17.843680" elapsed="0.000278"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Used to assert that a redirect have been made and updates the page variable initially set in
+the "I am on the page_name page" keyword</doc>
+<status status="PASS" start="2025-02-20T19:11:15.752698" elapsed="2.091337"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:15.316171" elapsed="2.527934"/>
+</kw>
+<kw name="And I enter username ${username}" owner="base" source_name="I enter username ${username}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:17.844779" level="INFO">Typing text 'a user' into text field 'id:login-username'.</msg>
+<arg>${${page}_username_input}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:17.844550" elapsed="0.017206"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:17.844277" elapsed="0.017605"/>
+</kw>
+<kw name="And I enter a valid password" owner="base">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:17.862616" level="INFO">Typing password into text field 'id:login-password'.</msg>
+<msg time="2025-02-20T19:11:17.872237" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${${page}_password_input}</arg>
+<arg>${password_long}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:17.862375" elapsed="0.016557"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:17.862097" elapsed="0.016957"/>
+</kw>
+<kw name="And submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:17.879734" level="INFO">Submitting form 'id:login-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:17.879524" elapsed="0.005498"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:17.879259" elapsed="0.005855"/>
+</kw>
+<kw name="And I should be logged in" owner="base">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${logout_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:17.885522" elapsed="2.075112"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:17.885281" elapsed="2.075498"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:15.315619" elapsed="4.645237"/>
+</kw>
+<kw name="And I have a VIP category ticket in my cart" owner="VG_del_Victor_Ek" source_name="I have a ${ticket} category ticket in my cart">
+<kw name="I have a ${ticket} Adult ticket in my cart" owner="base" source_name="I have a ${ticket_category} ${ticket_type} ticket in my cart">
+<kw name="I navigate to the tickets page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:19.963231" level="INFO">${page} = tickets</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:19.963039" elapsed="0.000243"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:19.963607" level="INFO">Clicking link 'data:section:tickets-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:19.963402" elapsed="0.223342"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.186947" elapsed="0.007744"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:19.962767" elapsed="0.232045"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:19.961908" elapsed="0.232983"/>
+</kw>
+<kw name="I add a ${ticket_category} ${ticket_type} ticket to my cart" owner="base" source_name="I add a ${ticket_category} ${ticket_type} ticket to my cart">
+<if>
+<branch type="IF" condition="$ticket_category == 'NONE'">
+<return>
+<status status="NOT RUN" start="2025-02-20T19:11:20.195628" elapsed="0.000029"/>
+</return>
+<status status="NOT RUN" start="2025-02-20T19:11:20.195458" elapsed="0.000246"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:11:20.195433" elapsed="0.000312"/>
+</if>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.196079" level="INFO">Selecting options from selection list 'id:ticket-category' by value VIP.</msg>
+<arg>${tickets_category_select}</arg>
+<arg>${ticket_category}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.195857" elapsed="0.237250"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.433906" level="INFO">Selecting options from selection list 'id:ticket-type' by value Adult.</msg>
+<arg>${tickets_type_select}</arg>
+<arg>${ticket_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.433468" elapsed="0.014985"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.448920" level="INFO">Clicking button 'Add to Cart'.</msg>
+<arg>${tickets_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.448692" elapsed="0.080115"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.529142" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.529012" elapsed="0.012736"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+Skipped if ticket category is NONE</doc>
+<status status="PASS" start="2025-02-20T19:11:20.195163" elapsed="0.346717"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:19.961618" elapsed="0.580338"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:11:19.961303" elapsed="0.580720"/>
+</kw>
+<kw name="And I am on the safari page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:20.543036" level="INFO">${page} = safari</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.542859" elapsed="0.000229"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.543409" level="INFO">Clicking link 'data:section:safari-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.543211" elapsed="0.228081"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.771498" elapsed="0.007807"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.542540" elapsed="0.236889"/>
+</kw>
+<kw name="When I add the Herbivore Tour safari on a weekend date to my cart" owner="base" source_name="I add the ${safari_type} safari on a ${date_var_name} to my cart">
+<kw name="I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart" owner="base" source_name="I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.781097" level="INFO">Typing text '2100-01-02' into text field 'id:safari-date'.</msg>
+<arg>${safari_date_input}</arg>
+<arg>${yyyy-mm-dd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.780892" elapsed="0.009003"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.790405" level="INFO">Selecting options from selection list 'id:safari-type' by value Herbivore Tour.</msg>
+<arg>${safari_type_select}</arg>
+<arg>${safari_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.790149" elapsed="0.010322"/>
+</kw>
+<kw name="submit the form" owner="base">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.801219" level="INFO">Submitting form 'id:safari-form'.</msg>
+<arg>${${page}_form}</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.801008" elapsed="0.035969"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:20.800727" elapsed="0.036380"/>
+</kw>
+<if>
+<branch type="IF" condition="$handle_alert==True">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-02-20T19:11:20.837502" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2025-02-20T19:11:20.837217" elapsed="0.000365"/>
+</branch>
+<status status="PASS" start="2025-02-20T19:11:20.837185" elapsed="0.000440"/>
+</if>
+<arg>handle_alert=${handle_alert}</arg>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:20.780503" elapsed="0.057191"/>
+</kw>
+<arg>handle_alert=No</arg>
+<tag>Victor</tag>
+<doc>Allows a name of a variable to be specified instead of hardcoding a date into the test case</doc>
+<status status="PASS" start="2025-02-20T19:11:20.779935" elapsed="0.057833"/>
+</kw>
+<kw name="Then I should see a success alert" owner="VG_del_Victor_Ek">
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.838661" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>${${page}_success_alert}</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.838447" elapsed="0.020052"/>
+</kw>
+<status status="PASS" start="2025-02-20T19:11:20.838176" elapsed="0.020453"/>
+</kw>
+<kw name="And the Herbivore Tour should be listed on the cart page" owner="base" source_name="the ${item_name} should be listed on the cart page">
+<kw name="I navigate to the cart page" owner="base" source_name="I navigate to the ${page_name} page">
+<kw name="I am on the ${page_name} page" owner="base" source_name="I am on the ${page_name} page">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-02-20T19:11:20.860156" level="INFO">${page} = cart</msg>
+<arg>${page}</arg>
+<arg>${page_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.859967" elapsed="0.000246"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:20.860541" level="INFO">Clicking link 'data:section:cart-section'.</msg>
+<arg>${${page}_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.860339" elapsed="0.216787"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${${page}_section}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T19:11:21.077334" elapsed="0.006949"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<doc>Navigates to the specified page using the link id, saves the page name as a variable for later
+use by steps in the same test. Uses nested variables prefixed with the page name.</doc>
+<status status="PASS" start="2025-02-20T19:11:20.859700" elapsed="0.224702"/>
+</kw>
+<tag>Kelley</tag>
+<tag>Victor_refactored</tag>
+<status status="PASS" start="2025-02-20T19:11:20.859428" elapsed="0.225063"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-20T19:11:21.095107" level="INFO">Element 'css:#cart-details' contains text 'Herbivore Tour'.</msg>
+<arg>${cart_items}</arg>
+<arg>${item name}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-02-20T19:11:21.084647" elapsed="0.010564"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:20.859104" elapsed="0.236214"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-20T19:11:21.095745" elapsed="2.793590"/>
+</kw>
+<tag>Victor</tag>
+<status status="PASS" start="2025-02-20T19:11:09.392370" elapsed="14.497246"/>
+</test>
+<doc>Test cases for good passing grade
+I have chosen the features number 5 and 6 in the list "features on the webpage" in Dokumentation - Labb GUI-testning mT24.pdf</doc>
+<status status="PASS" start="2025-02-20T19:09:28.879623" elapsed="115.010866"/>
+</suite>
+<status status="PASS" start="2025-02-20T19:09:28.877750" elapsed="115.014196"/>
+</suite>
+<status status="PASS" start="2025-02-20T19:09:28.848253" elapsed="115.044515"/>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="8" fail="0" skip="0">Victor</stat>
+</tag>
+<suite>
+<stat name="Jurasstina-Kalle-Park-Victor" id="s1" pass="8" fail="0" skip="0">Jurasstina-Kalle-Park-Victor</stat>
+<stat name="Tests" id="s1-s1" pass="8" fail="0" skip="0">Jurasstina-Kalle-Park-Victor.Tests</stat>
+<stat name="VG del Victor Ek" id="s1-s1-s1" pass="8" fail="0" skip="0">Jurasstina-Kalle-Park-Victor.Tests.VG del Victor Ek</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
