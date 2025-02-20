@@ -105,6 +105,8 @@ I have a ${ticket_category} ${ticket_type} ticket in my cart
 I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart
     [Tags]    Victor
     [Arguments]    ${handle_alert}=TRUE
+    Set Focus To Element    ${safari_type_select}
+    Set Focus To Element    ${safari_date_input}
     Input Text    ${safari_date_input}    ${yyyy-mm-dd}
     Select From List By Value    ${safari_type_select}    ${safari_type}
     submit the form
