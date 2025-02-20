@@ -1,3 +1,4 @@
 robotframework-seleniumlibrary
 selenium
 robotframework
+robotframework-examples
