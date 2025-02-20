@@ -1,52 +1,53 @@
 *** Settings ***
 Documentation    Test cases for good passing grade
+...              I have chosen the features number 5 and 6 in the list "features on the webpage" in Dokumentation - Labb GUI-testning mT24.pdf
 Library          Examples
 Resource         resources/VG_del_Victor_Ek.resource
-Resource         resources/base.resource
 Test Setup       Open Browser    ${url}    ${BROWSER}
 Test Teardown    Close Browser
 
 *** Test Cases ***
-The price for ${ticket_category} ${ticket_type} ${safari_type} is $${{ ${ticket_price} + ${safari_price} }}
-    [Documentation]    This uses the Examples library, having the steps in the test case like here makes more sense
-    ...                then how everything ends up in the keyword like in the 'Test with template' test.
-    Given I am logged in as Stina-Kalle
-    And I have a ${ticket_category} ${ticket_type} ticket in my cart
-    And I am on the safari page
-    And I add the ${safari_type} safari on a workday date to my cart
+There are ticket types for Adult, Child and Senior
+    [Documentation]    Test for feature number 5, Verifies that the three ticket types exist
+    [Tags]    Victor
+    Given I am logged in as a user
+    When I navigate to the tickets page
+    Then I should see ticket type options for    Adult    Child    Senior
+
+VIP category tickets have double the price of a regular category ticket
+    [Documentation]    Test for feature number 5, Verifies that VIP tickets have double the price of regular tickets
+    [Tags]    Victor
+    Given I am logged in as a user
+    And I have every ticket type there is for Regular and VIP category tickets in my cart
     When I navigate to the cart page
-    Then the ${ticket_category} ${ticket_type} should be listed on the cart page
-    And the ${safari_type} should be listed on the cart page
-    And the total price should be $${{ ${ticket_price} + ${safari_price} }}
+    Then the VIP category tickets price should be double the price of a Regular category ticket of the same type
 
-    Examples:    Ticket category    Ticket type    Ticket price    Safari type                         Safari price    --
-    ...          Regular            Child                    30    Herbivore Tour                               120
-    ...          Regular            Adult                    50    T-Rex Rumble                                 150
-    ...          VIP                Child                    60    Herbivore Tour with Feeding                  180
-    ...          VIP                Adult                   100    T-Rex Rumble eXtreme Thrill Pack             220
-
-Test with template
-    [Documentation]    This have an empty Setup and Teardown because they are only run once before the first
-    ...                iteration and after the last iteration, the keyword handles setup and teardown instead
-    [Setup]
-    [Template]    The price of ${ticket_category} ${ticket_type} ${safari_type} is $${ticket_price} plus $${safari_price}
-                               Regular            Child          Herbivore Tour                       30    120
-                               Regular            Adult          T-Rex Rumble                         50    150
-                               VIP                Child          Herbivore Tour with Feeding          60    180
-                               VIP                Adult          T-Rex Rumble eXtreme Thrill Pack    100    220
-    [Teardown]
-
-
-*** Keywords ***
-The price of ${ticket_category} ${ticket_type} ${safari_type} is $${ticket_price} plus $${safari_price}
-    VAR    ${total_price}    ${{${ticket_price}+${safari_price}}}
-    Open Browser    ${url}    ${BROWSER}
-    Given I am logged in as Stina-Kalle
-    And I have a ${ticket_category} ${ticket_type} ticket in my cart
+Having a ${ticket} ticket when booking a ${safari} safari on a ${date} will give an error message
+    [Documentation]    Test for feature number 6, Verifies that users with an incorrect ticket, or no ticket, cannot book a safari
+    [Tags]    Victor
+    Given I am logged in as a user
+    And I have a ${ticket} category ticket in my cart
     And I am on the safari page
-    And I add the ${safari_type} safari on a workday date to my cart
-    When I navigate to the cart page
-    Then the ${ticket_category} ${ticket_type} should be listed on the cart page
-    And the ${safari_type} should be listed on the cart page
-    And the total price should be $${total_price}
-    Close Browser
+    When I add the ${safari} safari on a ${date} to my cart    handle_alert=No
+    Then I should see an error message with the text ${error_message}
+    And the ${safari} should not be listed on the cart page
+
+    Examples:    Ticket     Safari                       Date            Error message                     --
+    ...          NONE       ${safari_regular_option1}    workday date    ${safari_error_no_ticket}
+    ...          Regular    ${safari_vip_option1}        workday date    ${safari_error_no_vip}
+    ...          Regular    ${safari_regular_option1}    weekend date    ${safari_error_weekend_no_vip}
+
+Having a ${ticket} ticket and booking a ${safari} safari on a ${date} will give a success alert
+    [Documentation]    Test for feature number 6, Verifies that users with the correct ticket can book a safari
+    [Tags]    Victor
+    Given I am logged in as a user
+    And I have a ${ticket} category ticket in my cart
+    And I am on the safari page
+    When I add the ${safari} safari on a ${date} to my cart    handle_alert=No
+    Then I should see a success alert
+    And the ${safari} should be listed on the cart page
+
+    Examples:    Ticket     Safari                       Date            --
+    ...          Regular    ${safari_regular_option1}    workday date
+    ...          VIP        ${safari_vip_option1}        workday date
+    ...          VIP        ${safari_regular_option1}    weekend date

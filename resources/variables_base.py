@@ -87,5 +87,5 @@ tickets_button = "Add to Cart"
 
 # Cart Page
 cart_section = "id:cart-section"
-cart_items = "css:#cart-details ul"
+cart_items = "css:#cart-details"
 cart_checkout_button = "id:checkout-button"

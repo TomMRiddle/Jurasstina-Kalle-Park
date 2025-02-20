@@ -88,8 +88,10 @@ I should see an error message
     Message Should Be Visible    ${register_message}   ${register_error_short_password}
     
 I add a ${ticket_category} ${ticket_type} ticket to my cart
-    [Tags]    Kelley
+    [Tags]    Kelley    Victor_refactored
     [Documentation]    Adds desired ticket type to cart, utilizing the standard ticket quantity of 1
+    ...                Skipped if ticket category is NONE
+    IF    $ticket_category == 'NONE'    RETURN
     Select From List By Value    ${tickets_category_select}    ${ticket_category}
     Select From List By Value    ${tickets_type_select}    ${ticket_type}
     Click Button    ${tickets_button}
@@ -102,15 +104,17 @@ I have a ${ticket_category} ${ticket_type} ticket in my cart
     
 I add the ${safari_type} safari on ${yyyy-mm-dd} to my cart
     [Tags]    Victor
+    [Arguments]    ${handle_alert}=TRUE
     Input Text    ${safari_date_input}    ${yyyy-mm-dd}
     Select From List By Value    ${safari_type_select}    ${safari_type}
     submit the form
-    Handle Alert
+    IF    $handle_alert==True    Handle Alert
 
 I add the ${safari_type} safari on a ${date_var_name} to my cart
     [Tags]    Victor
     [Documentation]    Allows a name of a variable to be specified instead of hardcoding a date into the test case
-    I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart
+    [Arguments]    ${handle_alert}=TRUE
+    I add the ${safari_type} safari on ${safari_${date_var_name}} to my cart    handle_alert=${handle_alert}
 
     
 the ${item_name} should be listed on the cart page
