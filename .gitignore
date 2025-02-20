@@ -5,5 +5,3 @@
 *.log
 __pycache__
 selenium-screenshot-*.png
-results
-VG-results
