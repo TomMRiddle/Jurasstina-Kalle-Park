@@ -1,6 +1,6 @@
 import os
 
-BROWSER = "chrome"
+BROWSER = "firefox"
 current_directory = os.getcwd().replace('\\', '/')
 url = f"file:///{current_directory}/jurap.html"
 

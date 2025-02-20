@@ -47,3 +47,4 @@ Book regular safari on a workday
     And I add the T-Rex Rumble safari on a workday date to my cart
     Then the Herbivore Tour should be listed on the cart page
     And the T-Rex Rumble should be listed on the cart page
+    And I am shown a summary when I checkout
